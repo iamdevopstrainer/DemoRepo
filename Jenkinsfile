@@ -10,7 +10,7 @@ pipeline {
 		stage('Build') {
 			steps {
 						dir('') {
-						sh '/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/mymaven/bin/mvn -B -V -U -e clean package'
+						sh '/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/myMaven/bin/mvn -B -V -U -e clean package'
 						}
 					}
 		}
@@ -26,7 +26,7 @@ pipeline {
 							// Deployment
 							script {
 									echo "deployment"
-									sh 'cp /var/lib/jenkins/workspace/PipelineCode/target/addressbook.war /opt/tomcat/webapps/'
+									//sh 'cp /var/lib/jenkins/workspace/PipelineCode/target/addressbook.war /opt/tomcat/webapps/'
 							}
 				}
 		}
