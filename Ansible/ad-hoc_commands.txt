@@ -1,0 +1,12 @@
+Ansible ad-hoc commands: single line commands
+ansible -m ping webservers
+ansible-doc -l (list of all modules)
+ansible-doc ping
+ansible-doc yum
+ansible -m command -a "uptime" webservers
+ansible -m user -a "name=sachin password=sachin" -s webservers
+ansible -m yum -a "name=httpd state=present" -s webservers
+ansible -m service -a "name=httpd state=started" -s webservers
+ansible -m copy -a "src=demo.txt dest=/tmp/demo.txt" webservers
+ansible webservers -m setup
+ansible webservers -m setup -a "filter=ansible_user*"
