@@ -1,0 +1,15 @@
+---
+  - name: Install Docker
+    yum: name=docker state=installed
+  - name: Start Docker services
+    service: name=docker state=started
+  - name: Create directory for Docker files
+    file: path=/root/docker-addressbook state=directory
+  - name: Copy addressbook.war file to Docker host
+    copy: src=addressbook.war dest=/root/docker-addressbook
+  - name: Copy Dockerfile to Docker host
+    copy: src=Dockerfile dest=/root/docker-addressbook
+  - name: Build Docker Image
+    command: chdir=/root/docker-addressbook docker build -t iamdevopstrainer/addressbook:a1 .
+  - name: Run Docker Container
+    command: docker run -itd -P iamdevopstrainer/addressbook:a1
