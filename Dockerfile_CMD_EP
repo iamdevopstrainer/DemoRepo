@@ -1,4 +1,0 @@
-#CMD and ENTRYPOINT example
-FROM debian:wheezy
-ENTRYPOINT ["/bin/ping"]
-CMD ["localhost"]
