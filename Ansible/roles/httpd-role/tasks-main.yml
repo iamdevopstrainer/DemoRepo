@@ -1,0 +1,6 @@
+---
+  - name: Install httpd package
+    yum: name=httpd state=installed
+  - name: Copy files from source to destination
+    copy: src=samplefile.html dest=/var/www/html
+    notify: Start HTTPD services
