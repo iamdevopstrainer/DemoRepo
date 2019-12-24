@@ -1,0 +1,10 @@
+Additional References:
+
+GCP Compute provisioning:
+https://drive.google.com/file/d/1G5NE2yhnQsf4ZAnHUyTFpoWwACd-GL1b/view?usp=sharing
+
+Linux Essentials for DevOps:
+https://www.youtube.com/watch?v=GzIFoJBVwh8
+
+Linux Basic Commands:
+http://cc.iiti.ac.in/docs/linuxcommands.pdf
