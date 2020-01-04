@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: demoapp-service
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 31001
+    protocol: TCP
+  selector:
+    app: demoapp
+  type: LoadBalancer
