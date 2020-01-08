@@ -1,0 +1,190 @@
+sudo yum install -y yum-utils   device-mapper-persistent-data   lvm2
+sudo yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
+ls -lrt /etc/yum.repos.d/docker-ce.repo
+ls -lrt /etc/yum.repos.d/
+sudo yum install docker-ce docker-ce-cli containerd.io
+systemctl status docker
+systemctl start docker
+ps -ef  |grep -i docker
+docker ps
+ps -ef | grep dockerd
+systemctl stop docker
+ps -ef | grep dockerd
+docker images
+docker pull httpd
+docker images
+docker rmi httpd:latest
+clear
+docker images
+docker pull httpd:2.4
+docker images
+docker rmi httpd:2.4
+clear
+docker images
+docker run -itd httpd
+docker ps
+clear
+docker ps
+docker run -itd --name Edureka_demo_httpd httpd
+docker ps
+docker stop b7da97549a1b
+docker ps
+docker ps -a
+docker start b7da97549a1b
+docker ps
+docker ps -a
+docker stop 51b40b9e8f8e b7da97549a1b
+docker ps
+docker ps -a
+docker start 51b40b9e8f8e
+clear
+docker ps
+docker ps -a
+docker rm b7da97549a1b
+docker ps -a
+clear
+docker ps
+docker ps -a
+docker rm 51b40b9e8f8e
+docker rm -f 51b40b9e8f8e
+docker ps
+docker ps -a
+clear
+docker run -itd httpd
+docker ps
+ifconfig
+ps -ef  |grep -i dockerd
+clear
+docker network ls
+ifconfig
+docker network delete mycustom1
+docker network rm mycustom1
+clear
+docker network
+docker network ls
+ifconfig
+clear
+docker ps
+docker inspect 132fa1f2cec0
+docker ps
+docker inspect 132fa1f2cec0 | grep -i Ipaddre
+clear
+docker run -itd httpd
+docker ps
+docker inspect 132fa1f2cec0 | grep -i ipaddr
+docker inspect da5f2580e8a5 | grep -i ipadd
+docker network ls
+docker network create -d bridge myownnetwork
+docker network ls
+ifconfig | more
+clear
+docker network ls
+docker inspect 6d6d4ca10670
+clear
+docker ps
+docker run -itd --network myownnetwork httpd
+docker ps
+docker inspect 1ebdb20e9eb0 | grep -i ipadd
+docker inspect 132fa1f2cec0 | grep -i ipadd
+clear
+docker ps
+docker inspect 132fa1f2cec0 | grep -i ipadd
+curl -k http://172.17.0.2:80/
+clear
+docker run -itd -P httpd
+docker ps
+docker stop b23df9c7810b
+docker run -itd -p 9999:80 httpd
+docker ps
+docker inspect c2aa7e16edd8
+systemctl start docker
+systemctl status docker
+docker pull ubuntu
+clear
+docker images
+docker run -itd ubuntu
+docker ps
+docker run -it ubuntu
+clear
+docker ps
+docker exec -it 3d4c42d2a9ff bash
+docker exec -it 3d4c42d2a9ff date
+clear
+docker ps
+clear
+ls
+ls -lrt
+clear
+docker ps
+docker run -i ubuntu
+clear
+docker ps -a
+clear
+docker run -t ubuntu
+clear
+docker ps
+clear
+docker ps
+clear
+docker ps
+docker rm -f 1411e9d1c11f 3d4c42d2a9ff d08387a60dea
+clear
+docker run -itd -P httpd
+docker ps
+docker exec -it 840b9a1d88d6 sh
+docker exec -it 840b9a1d88d6 bash
+clear
+docker ps
+vim sample.html
+cat sample.html
+docker cp sample.html 840b9a1d88d6:/usr/local/apache2/htdocs/
+clear
+docker ps
+ls -lrt
+touch a.html
+touch b.html
+ls -lrt
+mkdir data
+pwd
+cd data/
+ls -lrt
+clear
+pwd
+vim sample.html
+vim a.html
+vim b.html
+ls -lrt
+docker run -itd -v /root/data:/usr/local/apache2/htdocs/ httpd
+docker rm -f 2829825f63b86d0878d81cc35c758b9edd5417feba206c708c3f060b7a662211
+clear
+docker run -itd -v /root/data:/usr/local/apache2/htdocs/ -P httpd
+docker ps
+docker exec -it c140 bash
+clear
+pwd
+ls -lrt
+docker ps
+docker commit c140b6909859
+docker images
+docker tag 3f0fbdac6ed1 myimage:v1
+docker images
+clear
+cd ../
+pwd
+ls -lrt
+mkdir Dockerfile
+ls -lrt
+mv Dockerfile DocFile
+cd DocFile
+pwd
+clear
+pwd
+vim Dockerfile
+cat Dockerfile
+pwd
+ls -lrt
+vim sample.txt
+ls -lrt
+clear
+docker build .
+docker images
