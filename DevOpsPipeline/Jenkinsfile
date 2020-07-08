@@ -1,1 +1,65 @@
+pipeline
+{
+	agent any
+	stages
+	{
+		stage('Checkout')
+		{
+			steps
+			{
+				git 'https://github.com/iamdevopstrainer/DevOpsClassCodes'
+			}
+		}
+		
+		stage('Compile')
+		{
+			steps
+			{
+				sh 'mvn compile'
+			}
+		}
 
+		stage('Test')
+		{
+			steps
+			{
+				sh 'mvn test'
+			}
+		}
+
+		stage('Build')
+		{
+			steps
+			{
+				sh 'mvn package'
+			}
+		}
+		
+		stage('Build Docker Image')
+		{
+			steps
+			{
+				sh 'sudo cp /var/lib/jenkins/workspace/DevOpsPipeline/target/addressbook.war /root/deployment/'
+				sudo docker build -f /root/deployment/Dockerfile -t iamdevopstrainer/ab_app:$BUILD_NUMBER /root/deployment
+			}
+		}
+
+		stage('Push Docker Image')
+		{
+			steps
+			{
+				sh 'sudo docker push iamdevopstrainer/ab_app:$BUILD_NUMBER'
+			}
+		}
+
+		stage('Update Application')
+		{
+			steps
+			{
+				sh 'sudo docker service update --image iamdevopstrainer/ab_app:$BUILD_NUMBER addressbook'
+			}
+		}
+		
+	}
+		
+}
