@@ -40,7 +40,7 @@ pipeline
 			steps
 			{
 				sh 'sudo cp /var/lib/jenkins/workspace/DevOpsPipeline/target/addressbook.war /root/deployment/'
-				sudo docker build -f /root/deployment/Dockerfile -t iamdevopstrainer/ab_app:$BUILD_NUMBER /root/deployment
+				sh 'sudo docker build -f /root/deployment/Dockerfile -t iamdevopstrainer/ab_app:$BUILD_NUMBER /root/deployment'
 			}
 		}
 
