@@ -59,7 +59,16 @@ pipeline
 				sh 'sudo docker service update --image iamdevopstrainer/ab_app:$BUILD_NUMBER addressbook'
 			}
 		}
-		
+
+		stage('Update Configuration')
+		{
+			steps
+			{
+				sh 'sudo echo Application Version:$BUILD_NUMBER > /root/deployment/app.config'
+				sh 'sudo ansible-playbook /root/playbooks/app-config-playbook.yml'
+			}
+		}
+
 	}
 		
 }
