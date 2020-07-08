@@ -64,7 +64,7 @@ pipeline
 		{
 			steps
 			{
-				sh 'sudo bash -c \'echo Application Version:$BUILD_NUMBER > /root/config/app.config\''
+				sh 'sudo sh /root/config/update_config.sh $BUILD_NUMBER'
 				sh 'sudo ansible-playbook /root/playbooks/app-config-playbook.yml'
 			}
 		}
